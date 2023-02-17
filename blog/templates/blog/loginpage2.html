@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Sign Up{% endblock %}
+{% block content %}
+
+{% block css_files %}
+  <link rel="stylesheet" href="{% static 'blog/post-detail.css' %}">
+{% endblock %}
+<section id="comment-form">
+    <h2>Log In</h2>
+    <form action="{% url 'Log-in-page'%}" method="POST">
+        {% csrf_token %}
+        {%for form_field in form %}
+        <div class="form-control {% if form_field.errors %}invalid{% endif %}">
+            {{form_field.label_tag}}
+            {{form_field}}
+            {{form_field.errors}}
+        </div>
+        {% endfor %}
+         <p>Don't have an account? <a href="sign_up">Create an account</a>.</p>
+        <button type="submit"> confirm </button>
+    </form>
+</section>
+{% endblock %}

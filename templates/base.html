@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'app.css' %}">
+    {% block css_files %}{% endblock %}
+</head>
+<body>
+    <header id = "main-navigation">
+        <h1><a href="{% url 'starting-page'%}">Ahmad' Blog</a> </h1>
+        <nav>
+             {% if user_status %}
+                 <a href="">{{user}}</a>
+             {% else %}
+                <a href="{% url 'Log-in-page'%}">Log in</a>
+            {% endif %}
+            <a href="{% url 'read-later-page'%}">Read List</a>
+            <a href="{% url 'posts-page'%}">All Posts</a>
+            {% if user_status %}
+                 <a href="{% url 'Log-out' %}">Log Out</a>
+{#            {% else %}#}
+{#                <a href="{% url 'registaration-page'%}">Sign UP</a>#}
+            {% endif %}
+        </nav>
+    </header>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

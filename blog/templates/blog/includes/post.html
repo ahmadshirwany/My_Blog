@@ -1,0 +1,29 @@
+<div class="col-md-4">
+            <div class="card card-blog">
+              <div class="card-img">
+                <a href="{% url 'post-detail-page' post.slug %}"><img src="{{post.image_name.url}}" alt="" class="img-fluid"></a>
+              </div>
+              <div class="card-body">
+                <div class="card-category-box">
+                  <div class="card-category">
+                    <h6 class="category">{{ post.title }}</h6>
+                  </div>
+                </div>
+                <h3 class="card-title"><a href="{% url 'post-detail-page' post.slug %}">{{ post.title}}</a></h3>
+                <p class="card-description">
+                  {{post.excerpt}}
+                </p>
+              </div>
+              <div class="card-footer">
+                <div class="post-author">
+                  <a href="#">
+                    <img src="static/assets/img/Pic.jpg" alt="" class="avatar rounded-circle">
+                    <span class="author">{{ post.author.first_name }}</span>
+                  </a>
+                </div>
+                <div class="post-date">
+                  <span class="bi bi-clock"></span>  {{ post.Date |date:"b Y" }}
+                </div>
+              </div>
+            </div>
+</div>

@@ -1,0 +1,30 @@
+<head>
+    <script src="https://kit.fontawesome.com/35c4f0c859.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700;900&family=Sofia+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/jsrepeat.css">
+    <link href="assets/css/login_style.css" rel="stylesheet">
+</head>
+
+<body>
+    <section>
+        <h2 class="title">Log-in Page</h2>
+         <form action="{% url 'Log-in-page'%}" method="POST">
+             {% csrf_token %}
+        {%for form_field in form %}
+        <div class="form-control {% if form_field.errors %}invalid {% endif %}">
+            {{form_field.label_tag}}
+            {{form_field}}
+            {{form_field.errors}}
+        </div>
+        {% endfor %}
+        <button type="submit"> confirm </button>
+        </form>
+            <div>
+                <a  href="{% url 'registaration-page'%}" rel="noopener">Create an account</a>
+            </div>
+
+
+    </section>
+</body>
