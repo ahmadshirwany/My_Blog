@@ -25,7 +25,8 @@ SECRET_KEY = getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [getenv('APP_HOST'), getenv('APP_HOST2')]
+# ALLOWED_HOSTS = [getenv('APP_HOST'), getenv('APP_HOST2')]
+ALLOWED_HOSTS = ['*']
 CORE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Application definition
 
